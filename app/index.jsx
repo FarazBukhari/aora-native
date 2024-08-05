@@ -29,7 +29,7 @@ export default function RootLayout() {
                         Where creativity meets innovation: embark on a journey of limitless exploration with Aora
                     </Text>
 
-                    <CustomButton title="Continue with Email" handlePress={() => router.push('/sign-in')} containerStyle="w-full mt-7" />
+                    <CustomButton title="Continue with Email" handlePress={() => router.push('/sign-in')} containerStyles="w-full mt-7" />
                 </View>
             </ScrollView>
 

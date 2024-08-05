@@ -68,7 +68,7 @@ const SignUp = () => {
                         otherStyles="mt-7"
                     />
 
-                    <CustomButton title="Sign Up" handlePress={submit} containerStyle="mt-7" isLoading={isSubmitting} />
+                    <CustomButton title="Sign Up" handlePress={submit} containerStyles="mt-7" isLoading={isSubmitting} />
 
                     <View className="justify-center pt-5 flex-row gap-2">
                         <Text className="text-lg text-gray-100 font-pregular">Have an account already?</Text>

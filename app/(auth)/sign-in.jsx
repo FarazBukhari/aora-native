@@ -6,6 +6,7 @@ import FormField from '@/components/FormField';
 import CustomButton from '@/components/CustomButton';
 import { Link, router } from 'expo-router';
 import { getCurrentUser, signIn } from '@/lib/appwrite';
+import { useGlobalContext } from '@/context/GlobalProvider';
 
 const SignIn = () => {
     const { setUser, setIsLoggedIn } = useGlobalContext();
@@ -61,7 +62,7 @@ const SignIn = () => {
                         otherStyles="mt-7"
                     />
 
-                    <CustomButton title="Sign In" handlePress={submit} containerStyle="mt-7" isLoading={isSubmitting} />
+                    <CustomButton title="Sign In" handlePress={submit} containerStyles="mt-7" isLoading={isSubmitting} />
 
                     <View className="justify-center pt-5 flex-row gap-2">
                         <Text className="text-lg text-gray-100 font-pregular">Don't have account?</Text>
