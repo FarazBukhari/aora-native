@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { icons } from '@/constants';
 import { ResizeMode, Video } from 'expo-av';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 const VideoCard = ({
     video: {
@@ -9,9 +10,22 @@ const VideoCard = ({
         thumbnail,
         video,
         creator: { username, avatar }
-    }
+    },
+    saved
 }) => {
     const [play, setPlay] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSave = () => {
+        setIsLoading(true);
+        try {
+        } catch (error) {
+            Alert.alert('Error', `Could not ${!saved ? 'save' : 'unsave'} video`);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <View className="flex-col items-center px-4 mb-14">
             <View className="flex-row gap-3 items-start">
@@ -26,9 +40,14 @@ const VideoCard = ({
                         <Text className="text-xs text-gray-100 font-pregular">{username}</Text>
                     </View>
                 </View>
-                <View className="pt-2">
-                    <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" />
-                </View>
+                <TouchableOpacity className="pt-2" onPress={() => handleSave()}>
+                    {/* <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" /> */}
+                    <FontAwesomeIcon
+                        size={25}
+                        icon={saved ? icons.FaSolidIcons.faBookmark : icons.FaRegularIcons.faBookmark}
+                        color="white"
+                    />
+                </TouchableOpacity>
             </View>
 
             {play ? (
