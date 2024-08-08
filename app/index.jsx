@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from '@/constants';
 import CustomButton from '@/components/CustomButton';
 import { useGlobalContext } from '@/context/GlobalProvider';
+import Loader from '@/components/Loader';
 
 export default function RootLayout() {
     const { isLoading, isLoggedIn } = useGlobalContext();
@@ -34,6 +35,7 @@ export default function RootLayout() {
             </ScrollView>
 
             <StatusBar backgroundColor="#161622" style="light" />
+            <Loader isLoading={isLoading} />
         </SafeAreaView>
     );
 }

@@ -9,7 +9,7 @@ import { getCurrentUser, signIn } from '@/lib/appwrite';
 import { useGlobalContext } from '@/context/GlobalProvider';
 
 const SignIn = () => {
-    const { setUser, setIsLoggedIn } = useGlobalContext();
+    const { setUser, setIsLoggedIn, setIsLoading } = useGlobalContext();
     const [form, setForm] = useState({
         email: '',
         password: ''
@@ -23,6 +23,7 @@ const SignIn = () => {
             return;
         }
         setIsSubmitting(true);
+        setIsLoading(true);
 
         try {
             await signIn(form.email, form.password);
@@ -36,6 +37,7 @@ const SignIn = () => {
             console.log('Sign In Submit error', error);
         } finally {
             setIsSubmitting(false);
+            setIsLoading(false);
         }
     };
 

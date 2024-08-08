@@ -19,7 +19,7 @@ const initialValues = {
 };
 
 const Create = () => {
-    const { user } = useGlobalContext();
+    const { user, setIsLoading } = useGlobalContext();
     const [form, setForm] = useState(initialValues);
 
     const [uploading, setUploading] = useState(false);
@@ -52,6 +52,7 @@ const Create = () => {
         }
 
         setUploading(true);
+        setIsLoading(true);
         try {
             await createVideo({
                 ...form,
@@ -65,6 +66,7 @@ const Create = () => {
         } finally {
             setForm(initialValues);
             setUploading(false);
+            setIsLoading(false);
         }
     };
 
