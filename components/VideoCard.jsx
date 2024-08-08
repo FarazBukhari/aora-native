@@ -1,24 +1,38 @@
 import { View, Text, Image, TouchableOpacity, Alert } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { icons } from '@/constants';
 import { ResizeMode, Video } from 'expo-av';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { saveUnsaveVideo } from '@/lib/appwrite';
+import { useGlobalContext } from '@/context/GlobalProvider';
 
 const VideoCard = ({
     video: {
+        $id,
         title,
         thumbnail,
         video,
-        creator: { username, avatar }
+        creator: { username, avatar },
+        savedBy
     },
-    saved
+    savedPost
 }) => {
+    const { user } = useGlobalContext();
     const [play, setPlay] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [saved, setSaved] = useState(savedPost || savedBy?.find((savedUser) => savedUser.$id === user.$id));
 
-    const handleSave = () => {
+    const handleSave = async () => {
         setIsLoading(true);
         try {
+            setSaved(!saved);
+            const success = await saveUnsaveVideo({ userId: user.$id, videoId: $id, save: !saved });
+            if (success) {
+                setSaved(true);
+            } else {
+                Alert.alert('Error', 'Could not save post');
+                setSaved(false);
+            }
         } catch (error) {
             Alert.alert('Error', `Could not ${!saved ? 'save' : 'unsave'} video`);
         } finally {

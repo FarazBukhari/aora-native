@@ -21,12 +21,13 @@ const Saved = () => {
 
         setRefreshing(false);
     };
+
     return (
         <SafeAreaView className="bg-primary h-full">
             <FlatList
                 data={posts}
                 keyExtractor={(item) => item.$id}
-                renderItem={({ item }) => <VideoCard video={item} saved={true} />}
+                renderItem={({ item }) => <VideoCard video={item} savedPost={true} />}
                 ListHeaderComponent={() => (
                     <View className="my-6 px-4 space-y-6">
                         <View className="justify-between items-start flex mb-6">

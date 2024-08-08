@@ -31,9 +31,7 @@ const Profile = () => {
             <FlatList
                 data={posts}
                 keyExtractor={(item) => item.$id}
-                renderItem={({ item }) => (
-                    <VideoCard video={item} saved={item.savedBy.find((userS) => userS.$id === user.$id) ? true : false} />
-                )}
+                renderItem={({ item }) => <VideoCard video={item} />}
                 ListHeaderComponent={() => (
                     <View className="w-full justify-center items-center mt-6 mb-12 px-4">
                         <TouchableOpacity className="w-full items-end mb-10" onPress={logout}>
