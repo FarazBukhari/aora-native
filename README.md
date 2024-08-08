@@ -59,13 +59,9 @@ and many more, including code architecture and reusability
 
 <div align="center">
   <br />
-    <a href="https://youtu.be/ZBCUegTZF7M?si=ubt0vk70lSjt6DCs" target="_blank">
-      <img src="./assets/readme/Screens1.png" alt="Project Banner">
-    </a>
+   <img src="./assets/readme/Screens1.png" alt="Project Banner">
   <br />
   <br />
-    <a href="https://youtu.be/ZBCUegTZF7M?si=ubt0vk70lSjt6DCs" target="_blank">
-      <img src="./assets/readme/Screens2.png" alt="Project Banner">
-    </a>
+   <img src="./assets/readme/Screens2.png" alt="Project Banner">
   <br />
 </div>
