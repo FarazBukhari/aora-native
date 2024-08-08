@@ -1,16 +1,16 @@
 {
     "expo": {
-        "name": "aora",
+        "name": "Aora",
         "slug": "aora",
         "version": "1.0.0",
         "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
+        "icon": "./assets/icon.png",
         "scheme": "aora",
         "userInterfaceStyle": "automatic",
         "splash": {
-            "image": "./assets/images/splash.png",
+            "image": "./assets/splash.png",
             "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
+            "backgroundColor": "#161622"
         },
         "ios": {
             "package": "com.foxysama.aora",
@@ -19,18 +19,26 @@
         "android": {
             "package": "com.foxysama.aora",
             "adaptiveIcon": {
-                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#161622"
             }
         },
         "web": {
             "bundler": "metro",
             "output": "static",
-            "favicon": "./assets/images/favicon.png"
+            "favicon": "./assets/favicon.png"
         },
         "plugins": ["expo-router"],
         "experiments": {
             "typedRoutes": true
+        },
+        "extra": {
+            "router": {
+                "origin": false
+            },
+            "eas": {
+                "projectId": "e48ed7b0-aa5f-4ad8-b9cc-065378a45e95"
+            }
         }
     }
 }
