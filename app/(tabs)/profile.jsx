@@ -11,14 +11,16 @@ import InfoBox from '@/components/InfoBox';
 import { router } from 'expo-router';
 
 const Profile = () => {
-    const { user, setUser, setIsLoggedIn } = useGlobalContext();
+    const { user, setUser, setIsLoggedIn, setIsLoading } = useGlobalContext();
     const { data: posts, refetch } = useAppwrite(() => getUserPosts(user?.$id));
 
     const logout = async () => {
+        setIsLoading(true);
         await signOut();
         setUser(null);
         setIsLoggedIn(false);
 
+        setIsLoading(false);
         router.replace('/sign-in');
     };
 
