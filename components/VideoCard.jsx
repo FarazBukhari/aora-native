@@ -1,5 +1,5 @@
 import { View, Text, Image, TouchableOpacity, Alert } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { icons } from '@/constants';
 import { ResizeMode, Video } from 'expo-av';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -19,7 +19,7 @@ const VideoCard = ({
 }) => {
     const { user } = useGlobalContext();
     const [play, setPlay] = useState(false);
-    const [saved, setSaved] = useState(savedPost ? savedPost : savedBy.find((savedUser) => savedUser.$id === user.$id));
+    const [saved, setSaved] = useState(false);
 
     const handleSave = async () => {
         try {
@@ -33,6 +33,13 @@ const VideoCard = ({
             Alert.alert('Error', `Could not ${!saved ? 'save' : 'unsave'} video`);
         }
     };
+
+    useEffect(() => {
+        let userFound = savedBy && savedBy?.find((savedUser) => savedUser.$id === user.$id);
+        if (savedPost) setSaved(savedPost);
+        else if (userFound) setSaved(userFound);
+        else setSaved(false);
+    }, [savedBy, savedPost]);
 
     return (
         <View className="flex-col items-center px-4 mb-14">
