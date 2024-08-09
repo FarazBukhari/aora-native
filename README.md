@@ -18,12 +18,12 @@
     </div>
 </div>
 
-## <a name="introduction">🤖 Introduction</a>
+## <h2 name="introduction">🤖 Introduction</h2>
 
 Built with React Native for seamless user experiences, Animatable for captivating animations, and integrated with the dependable backend systems of Appwrite,
 this app showcases impressive design and functionality, enabling seamless sharing of AI videos within the community.
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+## <h2 name="tech-stack">⚙️ Tech Stack</h2>
 
 -   React Native
 -   Expo
@@ -31,7 +31,7 @@ this app showcases impressive design and functionality, enabling seamless sharin
 -   Animatable
 -   Appwrite
 
-## <a name="features">🔋 Features</a>
+## <h2 name="features">🔋 Features</h2>
 
 👉 **Onboarding Screen**: Engaging graphics and clear instructions welcome users to the app.
 
@@ -55,7 +55,7 @@ this app showcases impressive design and functionality, enabling seamless sharin
 
 and many more, including code architecture and reusability
 
-## <a name="tech-stack">📱 Screens</a>
+## <h2 name="screens">📱 Screens</h2>
 
 <div align="center">
   <br />
